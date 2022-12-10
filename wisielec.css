@@ -57,5 +57,23 @@ body {
 	font-family: Bradley Hand, cursive;
 	background-color: #892cdc;
 	margin-left: 5%;
-	border-radius: 20%;
+	border: white 2px solid;
+}
+#btns {
+	display: flex;
+	margin-top: 10%;
+	margin-left: 35%;
+}
+.btn {
+	width: 200px;
+	height: 50px;
+	font-size: 22px;
+	font-family: Bradley Hand, cursive;
+	background-color: #892cdc;
+	color: white;
+	border: white 2px solid;
+}
+.btn:hover {
+	background-color: #380453;
+	cursor: pointer;
 }
