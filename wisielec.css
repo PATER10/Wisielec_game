@@ -59,14 +59,29 @@ body {
 	margin-left: 5%;
 	border: white 2px solid;
 }
+#givenLetterInput {
+	width: 120px;
+	height: 45px;
+	background-color: #892cdc;
+	color: white;
+	border: white 2px solid;
+	font-size: 22px;
+	text-align: center;
+}
+::placeholder {
+	color: rgb(185, 185, 185);
+	font-size: 22px;
+	text-align: center;
+}
 #btns {
 	display: flex;
 	margin-top: 10%;
-	margin-left: 35%;
+	margin-left: 20%;
 }
 .btn {
 	width: 200px;
 	height: 50px;
+	margin-left: 3%;
 	font-size: 22px;
 	font-family: Bradley Hand, cursive;
 	background-color: #892cdc;

@@ -24,12 +24,12 @@ function createNew() {
 function checkLetter() {
 	let letter = "a";
 	for (let j = 0; j <= 5; j++) {
-		console.log("start");
 		if (letter === randomWord[j]) {
-			let exist = true;
-			console.log(exist);
+			exist = true;
+			break;
+		} else {
+			exist = false;
 		}
-		break;
 	}
 	if (exist === true) {
 		console.log("brawo");
