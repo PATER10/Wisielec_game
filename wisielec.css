@@ -14,15 +14,31 @@ body {
 #baner {
 	text-align: center;
 }
+#main {
+	display: flex;
+	justify-content: center;
+	justify-items: center;
+}
 #wisielec {
 	width: 50%;
-	height: 400px;
+	height: 50vh;
 }
 #wisielec_img {
 	height: 100%;
-	width: 40%;
+	width: 50%;
 	border: dashed white 5px;
 	border-radius: 10%;
+	margin-left: 10%;
+	margin-top: 10%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+#wisielec_png {
+	border-radius: 10%;
+	justify-content: center;
+	height: 90%;
+	width: 90%;
 }
 #game {
 	width: 50%;
