@@ -1,0 +1,16 @@
+body {
+	margin: 0;
+	padding: 0;
+	background-color: #52057b;
+}
+#container {
+	width: 100%;
+}
+#baner_word {
+	font-size: 75px;
+	color: #ffffff;
+	font-family: Bradley Hand, cursive;
+}
+#baner {
+	text-align: center;
+}
