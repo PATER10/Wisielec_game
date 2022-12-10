@@ -7,7 +7,6 @@ function randomPasswd() {
 	let random = Math.round((wordsLength - 1) * Math.random());
 	randomWord = words[random];
 	console.log(randomWord);
-	checkLetter();
 	for (let i = 1; i <= randomWord.length; i++) {
 		createNew();
 	}
@@ -22,10 +21,11 @@ function createNew() {
 }
 
 function checkLetter() {
-	let letter = "a";
+	let letter = document.querySelector("#givenLetterInput").value;
 	for (let j = 0; j <= 5; j++) {
 		if (letter === randomWord[j]) {
 			exist = true;
+			document.querySelector(".letters").innerText = randomWord[j];
 			break;
 		} else {
 			exist = false;
