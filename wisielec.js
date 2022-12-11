@@ -1,4 +1,5 @@
 let exist = false;
+let fault = 0;
 let words = ["pies", "kot", "sowa", "królik", "kangur"];
 
 function randomPasswd() {
@@ -25,8 +26,12 @@ function checkLetter() {
 	for (let j = 0; j < randomWord.length; j++) {
 		if (letter === randomWord[j]) {
 			document.querySelector(".letters" + j).innerText = randomWord[j];
-			console.log(document.querySelector(".letters" + j));
 		} else {
+			fault++;
+			console.log(fault);
+			var image = "img/wisielec" + fault + ".png";
+			document.querySelector("#wisielec_img").innerHTML =
+				'<img src="' + image + '" alt="wisielec" + id="wisielec_png" />';
 		}
 	}
 }
