@@ -1,8 +1,12 @@
 let exist = false;
+let passwd = "";
 let fault = 0;
 let words = ["pies", "kot", "sowa", "królik", "kangur"];
 
 function randomPasswd() {
+	passwd = "";
+	document.querySelector("#btns").innerHTML =
+		'<input type="text" placeholder="Podaj literę" id="givenLetterInput" class="btn"><input type="button" value="Potwierdź" class="btn" onclick="checkLetter()"><input type="button" value="Losuj hasło" id="randomPasswd" class="btn" onclick="randomPasswd()">';
 	document.querySelector("#randomPasswd").value = "Losuj nowe hasło";
 	document.querySelector("#displayWord").innerText = "";
 	document.querySelector("#wisielec_img").innerHTML =
@@ -32,6 +36,7 @@ function checkLetter() {
 		if (letter === randomWord[j]) {
 			exist = true;
 			document.querySelector(".letters" + j).innerText = randomWord[j];
+			passwd += letter;
 		}
 	}
 	if (exist === false) {
@@ -41,4 +46,18 @@ function checkLetter() {
 		document.querySelector("#wisielec_img").innerHTML =
 			'<img src="' + image + '" alt="wisielec" + id="wisielec_png" />';
 	}
+	if (fault >= 9) {
+		document.querySelector("#displayWord").innerText =
+			"Niestety nie udało ci się odgadnąć hasła! Prawidłowe hasło to: " +
+			randomWord;
+		document.querySelector("#btns").innerHTML =
+			'<input type="button" value="Losuj nowe hasło" id="randomPasswd" class="btn" onclick="randomPasswd()">';
+	}
+	if (passwd === randomWord) {
+		document.querySelector("#displayWord").innerText =
+			"Brawo udało ci się odgadnąć hasło!";
+		document.querySelector("#btns").innerHTML =
+			'<input type="button" value="Losuj nowe hasło" id="randomPasswd" class="btn" onclick="randomPasswd()">';
+	}
+	console.log(passwd);
 }
