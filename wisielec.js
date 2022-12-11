@@ -36,12 +36,11 @@ function checkLetter() {
 		if (letter === randomWord[j]) {
 			exist = true;
 			document.querySelector(".letters" + j).innerText = randomWord[j];
-			passwd += letter;
+			passwd += document.querySelector(".letters" + j).innerText;
 		}
 	}
 	if (exist === false) {
 		fault++;
-		console.log(fault);
 		var image = "img/wisielec" + fault + ".png";
 		document.querySelector("#wisielec_img").innerHTML =
 			'<img src="' + image + '" alt="wisielec" + id="wisielec_png" />';
