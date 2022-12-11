@@ -8,32 +8,25 @@ function randomPasswd() {
 	randomWord = words[random];
 	console.log(randomWord);
 	for (let i = 1; i <= randomWord.length; i++) {
-		createNew();
+		createNew(i - 1);
 	}
 
 	return randomWord.length;
 }
 
-function createNew() {
+function createNew(i) {
 	const el = document.createElement("div");
-	el.className = "letters";
+	el.className = "letters" + " " + "letters" + i;
 	document.querySelector("#displayWord").appendChild(el);
 }
 
 function checkLetter() {
 	let letter = document.querySelector("#givenLetterInput").value;
-	for (let j = 0; j <= 5; j++) {
+	for (let j = 0; j < randomWord.length; j++) {
 		if (letter === randomWord[j]) {
-			exist = true;
-			document.querySelector(".letters").innerText = randomWord[j];
-			break;
+			document.querySelector(".letters" + j).innerText = randomWord[j];
+			console.log(document.querySelector(".letters" + j));
 		} else {
-			exist = false;
 		}
-	}
-	if (exist === true) {
-		console.log("brawo");
-	} else {
-		console.log("Niestety");
 	}
 }
