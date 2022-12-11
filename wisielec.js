@@ -3,7 +3,11 @@ let fault = 0;
 let words = ["pies", "kot", "sowa", "królik", "kangur"];
 
 function randomPasswd() {
+	document.querySelector("#randomPasswd").value = "Losuj nowe hasło";
 	document.querySelector("#displayWord").innerText = "";
+	document.querySelector("#wisielec_img").innerHTML =
+		'<img src="img/default.png" alt="wisielec" id="wisielec_png" />';
+	fault = 0;
 	let wordsLength = words.length;
 	let random = Math.round((wordsLength - 1) * Math.random());
 	randomWord = words[random];
@@ -22,16 +26,19 @@ function createNew(i) {
 }
 
 function checkLetter() {
+	exist = false;
 	let letter = document.querySelector("#givenLetterInput").value;
 	for (let j = 0; j < randomWord.length; j++) {
 		if (letter === randomWord[j]) {
+			exist = true;
 			document.querySelector(".letters" + j).innerText = randomWord[j];
-		} else {
-			fault++;
-			console.log(fault);
-			var image = "img/wisielec" + fault + ".png";
-			document.querySelector("#wisielec_img").innerHTML =
-				'<img src="' + image + '" alt="wisielec" + id="wisielec_png" />';
 		}
+	}
+	if (exist === false) {
+		fault++;
+		console.log(fault);
+		var image = "img/wisielec" + fault + ".png";
+		document.querySelector("#wisielec_img").innerHTML =
+			'<img src="' + image + '" alt="wisielec" + id="wisielec_png" />';
 	}
 }
