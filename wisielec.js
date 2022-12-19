@@ -1,10 +1,10 @@
 let exist = false;
-let passwd = "";
 let fault = 0;
+let finished = false;
 let words = ["pies", "kot", "sowa", "królik", "kangur"];
 
 function randomPasswd() {
-	passwd = "";
+	finished = false;
 	document.querySelector("#btns").innerHTML =
 		'<input type="text" placeholder="Podaj literę" id="givenLetterInput" class="btn"><input type="button" value="Potwierdź" class="btn" onclick="checkLetter()"><input type="button" value="Losuj hasło" id="randomPasswd" class="btn" onclick="randomPasswd()">';
 	document.querySelector("#randomPasswd").value = "Losuj nowe hasło";
@@ -15,17 +15,16 @@ function randomPasswd() {
 	let wordsLength = words.length;
 	let random = Math.round((wordsLength - 1) * Math.random());
 	randomWord = words[random];
-	console.log(randomWord);
+	console.log("Hasło to: " + randomWord);
 	for (let i = 1; i <= randomWord.length; i++) {
 		createNew(i - 1);
 	}
-
 	return randomWord.length;
 }
 
 function createNew(i) {
 	const el = document.createElement("div");
-	el.className = "letters" + " " + "letters" + i;
+	el.className = "letters";
 	document.querySelector("#displayWord").appendChild(el);
 }
 
@@ -35,8 +34,7 @@ function checkLetter() {
 	for (let j = 0; j < randomWord.length; j++) {
 		if (letter === randomWord[j]) {
 			exist = true;
-			document.querySelector(".letters" + j).innerText = randomWord[j];
-			passwd += document.querySelector(".letters" + j).innerText;
+			document.getElementsByClassName("letters")[j].innerText = randomWord[j];
 		}
 	}
 	if (exist === false) {
@@ -52,11 +50,19 @@ function checkLetter() {
 		document.querySelector("#btns").innerHTML =
 			'<input type="button" value="Losuj nowe hasło" id="randomPasswd" class="btn" onclick="randomPasswd()">';
 	}
-	if (passwd === randomWord) {
+	if (fault < 9) {
+		for (let i = 0; i < randomWord.length; i++) {
+			if (document.getElementsByClassName("letters")[i].innerText === "") {
+				return (finished = false);
+			} else {
+				finished = true;
+			}
+		}
+	}
+	if (finished === true) {
 		document.querySelector("#displayWord").innerText =
 			"Brawo udało ci się odgadnąć hasło!";
 		document.querySelector("#btns").innerHTML =
 			'<input type="button" value="Losuj nowe hasło" id="randomPasswd" class="btn" onclick="randomPasswd()">';
 	}
-	console.log(passwd);
 }
