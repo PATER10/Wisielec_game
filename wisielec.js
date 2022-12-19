@@ -1,7 +1,18 @@
 let exist = false;
 let fault = 0;
 let finished = false;
-let words = ["pies", "kot", "sowa", "królik", "kangur"];
+let words = [
+	"pies",
+	"kot",
+	"sowa",
+	"królik",
+	"kangur",
+	"krowa",
+	"sarna",
+	"chomik",
+	"wiewiórka",
+	"jastrząb",
+];
 
 function randomPasswd() {
 	finished = false;
